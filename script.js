@@ -1,23 +1,21 @@
 window.addEventListener('load', function () {
     const pullDownButton = document.getElementById("lists");
-    //const pullDownMenu = document.getElementById("pull-down");
 
     //マウスオーバーした時
     pullDownButton.addEventListener("mouseover", function () {
-        // pullDownMenu.classList.remove("hidden");
-        console.log("乗る");
+        pullDownButton.setAttribute("style", "background-color:blue;");
+        console.log("乗ったときは青色");
     });
 
     //マウスアウトした時
     pullDownButton.addEventListener("mouseout", function () {
-        // pullDownMenu.classList.add("hedden");
-        console.log("外れる");
+        pullDownButton.removeAttribute("style", "background-color:red;");
+        console.log("外れた時は赤色");
     });
 
     //クリックした時
     pullDownButton.addEventListener("click", function () {
-        // pullDownMenu.classList.toggle("hidden");
-        console.log("クリック");
+        pullDownButton.setAttribute("style", "background-color:green;");
+        console.log("クリック時は緑色");
     });
 });
-
