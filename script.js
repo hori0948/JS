@@ -1,6 +1,8 @@
-window.addEventListener('load', function () {
+function pullDown() {
     const pullDownButton = document.getElementById("lists");
     const pullDownParents = this.document.getElementById("pull-down");
+    const pullDownChild = this.document.querySelectorAll(".pull-down-list");
+    const currentList = this.document.getElementById("current-list");
 
     //マウスオーバーした時
     pullDownButton.addEventListener("mouseover", function () {
@@ -23,5 +25,14 @@ window.addEventListener('load', function () {
             pullDownParents.setAttribute("style", "display:block;");
             console.log("表示");
         }
+        pullDownChild.forEach(function (list) {
+            list.addEventListener("click", function () {
+                const value = list.innerHTML;
+                currentList.innerHTML = value;
+                console.log(value);
+            });
+        });
     });
-});
+
+};
+window.addEventListener('load', pullDown);
