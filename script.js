@@ -1,21 +1,27 @@
 window.addEventListener('load', function () {
     const pullDownButton = document.getElementById("lists");
+    const pullDownParents = this.document.getElementById("pull-down");
 
     //マウスオーバーした時
     pullDownButton.addEventListener("mouseover", function () {
-        pullDownButton.setAttribute("style", "background-color:blue;");
+        this.setAttribute("style", "background-color:blue;");
         console.log("乗ったときは青色");
     });
 
     //マウスアウトした時
     pullDownButton.addEventListener("mouseout", function () {
-        pullDownButton.removeAttribute("style", "background-color:red;");
+        this.removeAttribute("style", "background-color:red;");
         console.log("外れた時は赤色");
     });
 
     //クリックした時
     pullDownButton.addEventListener("click", function () {
-        pullDownButton.setAttribute("style", "background-color:green;");
-        console.log("クリック時は緑色");
+        if (pullDownParents.getAttribute("style") == "display:block;") {
+            pullDownParents.removeAttribute("style", "display:block;");
+            console.log("非表示");
+        } else {
+            pullDownParents.setAttribute("style", "display:block;");
+            console.log("表示");
+        }
     });
 });
